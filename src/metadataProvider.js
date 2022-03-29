@@ -67,6 +67,14 @@ function wadoRsMetaDataProvider(type, imageId) {
       frameTime: getNumberValue(metaData['00181063']),
     };
   }
+
+  if (type === 'customModule') {
+    return {
+      manufacturer: getValue(metaData['00080070']),
+      windowCenter: getNumberValue(metaData['00281050']),
+      windowWidth: getNumberValue(metaData['00281051'])
+    }
+  }
 }
 
 cornerstone.metaData.addProvider(wadoRsMetaDataProvider);
